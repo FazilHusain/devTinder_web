@@ -1,23 +1,33 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
+import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../utils/constants";
 
 const Login = () => {
-  const { emailId, setEmailId } = useState("");
-  const { password, setPassword } = useState("");
+  const [emailId, setEmailId] = useState("FazilHusain@gmail.com");
+  const [password, setPassword] = useState("Fazil@123");
+  const [error, setError] = useState("");
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
       // eslint-disable-next-line no-unused-vars
       const res = await axios.post(
-        "",
+        `${BASE_URL}/login`,
         { emailId, password },
         {
           withCredentials: true,
         }
       );
+      dispatch(addUser(res.data));
+      navigate("/feed"); 
     } catch (error) {
-      console.log(error);
+      setError(error?.response?.data || "Something went wrong");
     }
   };
 
@@ -50,6 +60,7 @@ const Login = () => {
               />
             </label>
           </div>
+          <p className="text-red-500">{error}</p>
           <div className="card-actions justify-center m-2">
             <button className="btn btn-primary " onClick={handleLogin}>
               Login
