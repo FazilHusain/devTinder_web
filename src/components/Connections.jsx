@@ -30,7 +30,7 @@ if (connections.length === 0)
   return <h1 className="text-center my-10 text-white">No Connections Found</h1>;
 
 return (
-  <div className="my-10 px-4">
+  <div className="my-10 px-4 pb-40 min-h-screen">
     <h1 className="text-center font-bold text-white text-3xl mb-6">
       Connections
     </h1>
