@@ -55,43 +55,55 @@ const Premium = () => {
     rzp.open();
   };
 
-  return isUserPremium ? ("You are already a premium member..!") : (
-    <div className="m-10">
-      <div className="flex w-full">
-        <div className="card bg-base-300 rounded-box grid h-80 grow place-items-center">
-          <h1 className="font-bold text-3xl">Silver Membership</h1>
-          <ul>
-            <li> - Chat with other people</li>
-            <li> - 100 connection Requests per day</li>
-            <li> - Blue Tick</li>
-            <li> - 3 months</li>
-          </ul>
-          <button
-            onClick={() => handleBuyClick("silver")}
-            className="btn btn-secondary"
-          >
-            Buy Silver
-          </button>
-        </div>
-        <div className="divider divider-horizontal">OR</div>
-        <div className="card bg-base-300 rounded-box grid h-80 grow place-items-center">
-          <h1 className="font-bold text-3xl">Gold Membership</h1>
-          <ul>
-            <li> - Chat with other people</li>
-            <li> - Inifiniye connection Requests per day</li>
-            <li> - Blue Tick</li>
-            <li> - 6 months</li>
-          </ul>
-          <button
-            onClick={() => handleBuyClick("gold")}
-            className="btn btn-secondary"
-          >
-            Buy Gold
-          </button>
-        </div>
+  return isUserPremium ? (
+  <div className="text-center text-white font-semibold text-lg my-10">
+    You are already a premium member..!
+  </div>
+) : (
+  <div className="px-4 py-8">
+    <h1 className="text-white text-2xl font-bold text-center mb-6">
+      Choose Your Membership
+    </h1>
+
+    <div className="flex flex-col items-center gap-6">
+      {/* Silver Plan */}
+      <div className="bg-base-300 rounded-xl w-full max-w-sm p-6 shadow-lg space-y-4">
+        <h2 className="text-white text-xl font-bold text-center">Silver Membership</h2>
+        <ul className="list-disc list-inside text-gray-300 text-sm space-y-1">
+          <li>Chat with other people</li>
+          <li>100 connection requests per day</li>
+          <li>Blue Tick</li>
+          <li>3 months</li>
+        </ul>
+        <button
+          onClick={() => handleBuyClick("silver")}
+          className="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded transition"
+        >
+          Buy Silver
+        </button>
+      </div>
+
+      {/* Gold Plan */}
+      <div className="bg-base-300 rounded-xl w-full max-w-sm p-6 shadow-lg space-y-4">
+        <h2 className="text-white text-xl font-bold text-center">Gold Membership</h2>
+        <ul className="list-disc list-inside text-gray-300 text-sm space-y-1">
+          <li>Chat with other people</li>
+          <li>Unlimited connection requests per day</li>
+          <li>Blue Tick</li>
+          <li>6 months</li>
+        </ul>
+        <button
+          onClick={() => handleBuyClick("gold")}
+          className="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded transition"
+        >
+          Buy Gold
+        </button>
       </div>
     </div>
-  );
+  </div>
+);
+
+
 };
 
 export default Premium;
