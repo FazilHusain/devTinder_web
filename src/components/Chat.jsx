@@ -69,7 +69,7 @@ const Chat = () => {
   };
 
   return (
-  <div className="w-full max-w-2xl mx-auto border border-gray-600 my-5 min-h-[60vh] h-[70vh] flex flex-col rounded-md bg-gray-900">
+  <div className="w-full max-w-2xl mx-auto border border-gray-600 my-5 flex flex-col rounded-md bg-gray-900 min-h-screen sm:min-h-[60vh] sm:h-[70vh] overflow-hidden">
     <h1 className="border-b border-gray-600 p-4 text-lg font-semibold text-white">Chat</h1>
 
     <div className="flex-1 overflow-y-auto p-4 space-y-3">
@@ -88,7 +88,7 @@ const Chat = () => {
       ))}
     </div>
 
-    <div className="p-4 border-t border-gray-600 flex items-center gap-2 bg-gray-800">
+    <div className="p-4 border-t border-gray-600 flex items-center gap-2 bg-gray-800 sticky bottom-0 z-10">
       <input
         value={newMessage}
         onChange={(e) => setNewMessage(e.target.value)}
@@ -104,6 +104,7 @@ const Chat = () => {
     </div>
   </div>
 );
+
 };
 
 export default Chat;
